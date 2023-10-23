@@ -47,7 +47,7 @@ class Logger:
         elif level == 'critical':
             self._logger.critical(msg)
         else:
-            raise ValueError('Invalid log level: {}'.format(level))
+            raise ValueError(f'Invalid log level: {level}')
 
     def set_level(self, level):
         level_dict = {
@@ -59,7 +59,7 @@ class Logger:
         }
 
         if level not in level_dict:
-            raise ValueError('Invalid log level: {}'.format(level))
+            raise ValueError(f'Invalid log level: {level}')
 
         level_code = level_dict[level]
 
@@ -68,8 +68,7 @@ class Logger:
             handler.setLevel(level_code)
 
     def get_current_level(self):
-        level = logging.getLevelName(self._logger.getEffectiveLevel())
-        return level
+        return logging.getLevelName(self._logger.getEffectiveLevel())
 
 # EXAMPLES:
 # logger = Logger(name="ethos_tester.py")

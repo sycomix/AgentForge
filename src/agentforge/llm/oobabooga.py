@@ -5,7 +5,7 @@ class Oobabooga:
     _server = "127.0.0.1"
 
     def generate_text(self, prompt, **params):
-        print("prompt:" + prompt)
+        print(f"prompt:{prompt}")
 
         data = [
             prompt,

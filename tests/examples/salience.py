@@ -17,7 +17,7 @@ class Salience:
 
     def run(self, feedback=None):
 
-        self.logger.log(f"Running Agent...", 'info')
+        self.logger.log("Running Agent...", 'info')
         # Load Last Results and Current Task as Data
         data = self.load_data_from_storage()
 
@@ -61,7 +61,7 @@ class Salience:
 
         self.logger.log(f"Execution Results: {execution_results}", 'debug')
 
-        self.logger.log(f"Agent Done!", 'info')
+        self.logger.log("Agent Done!", 'info')
         return execution_results
 
     def load_data_from_storage(self):
@@ -128,15 +128,13 @@ class Salience:
         self.logger.log(f"Current Task:{current_task['document']}", 'info')
         self.logger.log(f"Current Task:\n{current_task}", 'debug')
 
-        ordered_results = {
+        return {
             'result': result,
             'current_task': current_task,
             'task_list': ordered_list,
             'task_ids': sorted_ids,
-            'task_order': current_task["metadata"]["task_order"]
+            'task_order': current_task["metadata"]["task_order"],
         }
-
-        return ordered_results
 
     def loop(self):
         # Add a variable to set the mode

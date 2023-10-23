@@ -16,12 +16,7 @@ class PrioritizationAgent(Agent):
             'include': ["ids"]
         })[0]
 
-        data = {
-            'task_list': task_list,
-            'this_task_order': this_task_order
-        }
-
-        return data
+        return {'task_list': task_list, 'this_task_order': this_task_order}
 
     def parse_output(self, result, bot_id, data):
         new_tasks = result.split("\n")

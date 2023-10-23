@@ -75,7 +75,7 @@ class ScenarioUtils:
 
         attribute_data = {}
         for scenario, projection in embeddings.items():
-            file_path = os.path.join(self.meta_dir_path, "scenario_%s.yaml" % scenario)
+            file_path = os.path.join(self.meta_dir_path, f"scenario_{scenario}.yaml")
             attribute = 'Unknown'
 
             if os.path.isfile(file_path):

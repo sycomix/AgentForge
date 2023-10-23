@@ -15,11 +15,10 @@ def _calculate_next_task_order(this_task_order):
 def _order_tasks(task_list):
     filtered_results = [task for task in task_list if task['task_order'].isdigit()]
 
-    ordered_results = [
+    return [
         {'task_order': int(task['task_order']), 'task_desc': task['task_desc']}
-        for task in filtered_results]
-
-    return ordered_results
+        for task in filtered_results
+    ]
 
 
 def _print_task_list(task_list):
@@ -76,7 +75,7 @@ class Agent:
 
     def run(self, bot_id=None, **kwargs):
         # This function will be the main entry point for your agent.
-        self.logger.log(f"Running Agent...", 'info')
+        self.logger.log("Running Agent...", 'info')
 
         # Load data
         data = {}
@@ -122,7 +121,7 @@ class Agent:
             output = reason
             self.save_status(status, task_id, description, order)
 
-        self.logger.log(f"Agent Done!", 'info')
+        self.logger.log("Agent Done!", 'info')
         return output
 
     def load_result_data(self):

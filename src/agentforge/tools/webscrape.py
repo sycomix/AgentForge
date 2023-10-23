@@ -13,7 +13,4 @@ class WebScraper:
         # Create a BeautifulSoup object with the HTML content
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        # Extract the plain text from the HTML content
-        plain_text = soup.get_text()
-
-        return plain_text
+        return soup.get_text()

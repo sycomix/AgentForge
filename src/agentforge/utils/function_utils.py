@@ -56,7 +56,6 @@ class Functions:
                 "\nAllow AI to continue? (y/n/auto) or provide feedback: ")
             if user_input.lower() == 'y':
                 context = feedback_from_status
-                pass
             elif user_input.lower() == 'n':
                 quit()
             elif user_input.lower() == 'auto':
@@ -71,11 +70,7 @@ class Functions:
         if status is not None:
             user_input = input(
                 f"Feedback:{status}\n\nSend this feedback to the execution agent? (y/n): ")
-            if user_input.lower() == 'y':
-                result = status
-            else:
-                result = None
-            return result
+            return status if user_input.lower() == 'y' else None
 
     def get_auto_mode(self):
         return self.mode

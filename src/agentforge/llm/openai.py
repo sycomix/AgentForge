@@ -38,12 +38,11 @@ class GPT:
                 print("\n\nError: Reached API rate limit, retrying in 20 seconds...")
                 time.sleep(20)
             except openai.error.APIError as e:
-                if e.http_status == 502:
-                    print(f"\n\nError: Bad gateway, retrying in {backoff} seconds...")
-                    time.sleep(backoff)
-                else:
+                if e.http_status != 502:
                     raise
 
+                print(f"\n\nError: Bad gateway, retrying in {backoff} seconds...")
+                time.sleep(backoff)
         # reply will be none if we have failed above
         if reply is None:
             raise RuntimeError("\n\nError: Failed to get OpenAI Response")
